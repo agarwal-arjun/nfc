@@ -1,0 +1,179 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv='Pragma' content='no-cache'/>
+<meta http-equiv='Cache-Control' content='no-cache'/>	
+<meta http-equiv="Expires" content="-1"/>
+body, form, img, h1, h2, h3, h4, h5, h6, div, p, ul, ol, dl, li, dd, dt, label, span { margin: 0; padding: 0; }
+ul, ol { list-style: none; }
+img { border: 0px; }
+html, body { background-color: #ffffff; }
+
+body { font-family: Arial, Helvetica, sans-serif; font-size: x-small; padding: 0px; }
+
+.header { height:50px;
+float:left;
+width:99%;
+background-color:#FFFFFF
+}
+.redMsg{
+    font-size:12px;
+    font-weight:bold;
+    color:red;
+}
+.liSelected
+{
+    background-color:#E9E9F3;
+}
+div.container {
+ background: #FFFFFF; 
+float:left;
+width:99%;
+background-image:url(images/catg_bg.jpg);
+background-repeat:repeat-x; 
+}
+
+.container_left{
+width:33%;
+float:left;
+padding-top: 90px;
+}
+.container_center{
+width:34%;
+float:left;
+padding-top:90px;
+}
+.container_right{
+width:32%;
+float:right;
+
+}
+
+div.login_modules{
+width:100%;
+float:left;
+padding-top:5px;
+padding-bottom:5px;
+padding-left:5px;
+}
+div.module{
+float:left;
+
+}
+
+.footer{ 
+color: #FFFFFF;	
+padding-right:10px;
+padding-top:10px;
+padding-bottom:10px;
+background-color:#6c5293;
+font-size:10px
+}
+
+
+
+.container_left1{
+width:13%;
+float:left;
+padding-top: 90px;
+}
+.container_center1{
+width:74%;
+float:left;
+padding-top:20px;
+}
+.container_right1{
+width:12%;
+float:right;
+vertical-align:top;
+}
+.catText{ text-align:left; color:#000000; font-weight:normal; font-family: Arial, Helvetica, sans-serif; font-size: 11px; }
+.catText a
+   {
+   color: #000000;
+   }
+
+.catText a:hover
+   {
+   color: #000000;
+   }
+.catTextbold{ text-align:left; color:#000000; font-weight:bold; font-family: Arial, Helvetica, sans-serif; font-size: 14px; }
+.catTextbold a
+   {
+   color: #000000;
+   }
+
+.catTextbold a:hover
+   {
+   color: #000000;
+   }
+   .catTextboldact{ padding-top: 5px;padding-left:15px;text-align:left; background-image:url(images/act_bg.gif); font-weight:bold; font-family: Arial, Helvetica, sans-serif; font-size: 11px; }
+.catTextboldact a
+   {
+   color: #000000;
+   }
+
+.catTextboldact a:hover
+   {
+   color: #000000;
+   }
+   .catTextbolddeact{  padding-top: 5px;padding-left:15px;text-align:left; background-image:url(images/deact_bg.gif); color:#000000; font-weight:bold; font-family: Arial, Helvetica, sans-serif; font-size: 11px; }
+.catTextbolddeact a
+   {
+   color: #000000;
+   }
+
+.catTextbolddeact a:hover
+   {
+   color: #000000;
+   }
+   .catTextboldtone{  padding-top: 5px;padding-left:15px;text-align:left; background-image:url(images/tone_bg.gif); color:#000000; font-weight:bold; font-family: Arial, Helvetica, sans-serif; font-size: 11px; }
+.catTextboldtone a
+   {
+   color: #000000;
+   }
+
+.catTextboldtone a:hover
+   {
+   color: #000000;
+   }
+.sortlink:link {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; color: #000000;text-decoration: none}
+.sortlinkW:link {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; color: #FFFFFF;text-decoration: none} 
+INPUT {
+	BORDER-TOP-WIDTH: 1px; BORDER-LEFT-WIDTH: 1px; BORDER-LEFT-COLOR: #000000; BORDER-BOTTOM-WIDTH: 1px; BORDER-BOTTOM-COLOR: #000000; FONT: x-small Verdana, Arial, Helvetica, sans-serif; COLOR: #000000; BORDER-TOP-COLOR: #000000; BACKGROUND-COLOR: #FFFFFF; BORDER-RIGHT-WIDTH: 1px; BORDER-RIGHT-COLOR: #000000
+}
+TEXTAREA {
+	BORDER-TOP-WIDTH: 1px; BORDER-LEFT-WIDTH: 1px; BORDER-LEFT-COLOR: #000000; BORDER-BOTTOM-WIDTH: 1px; BORDER-BOTTOM-COLOR: #000000; FONT: x-small Verdana, Arial, Helvetica, sans-serif; COLOR: #000000; BORDER-TOP-COLOR: #000000; BACKGROUND-COLOR: #FFFFFF; BORDER-RIGHT-WIDTH: 1px; BORDER-RIGHT-COLOR: #000000
+}
+SELECT {
+	BORDER-TOP-WIDTH: 1px; BORDER-LEFT-WIDTH: 1px; BORDER-LEFT-COLOR: #000000; BORDER-BOTTOM-WIDTH: 1px; BORDER-BOTTOM-COLOR: #000000; FONT: x-small Verdana, Arial, Helvetica, sans-serif; COLOR: #000000; BORDER-TOP-COLOR: #000000; BACKGROUND-COLOR: #FFFFFF; BORDER-RIGHT-WIDTH: 1px; BORDER-RIGHT-COLOR: #000000
+}
+TR.row1
+{
+    BACKGROUND: #FFFFFF;
+    COLOR: #000000;
+    FONT-SIZE: 8pt;
+    LINE-HEIGHT: 12px
+}
+#floating_banner_bottom {
+	text-align: center;
+	width: 100%;
+	bottom: 0px;
+	margin-bottom: 0px;
+	height: 1px;
+	position: fixed;
+	z-index: 100;
+	right: 0;
+	 _position:absolute;
+	  _top:expression(document.body.scrollTop+document.body.clientHeight-this.clientHeight);
+}
+html>body #floating_banner_bottom { margin-bottom: 0px; bottom: 0 }
+ 
+#floating_banner_bottom div.close {
+	margin: 0 auto;
+	width: 100%;
+	height: 1px;
+	text-align: right;
+}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv='Pragma' content='no-cache'/>
+<meta http-equiv='Cache-Control' content='no-cache'/>	
+<meta http-equiv="Expires" content="-1"/>
