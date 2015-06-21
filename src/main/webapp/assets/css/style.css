@@ -2105,9 +2105,9 @@ table {
 	text-align: left;
 }
 
-label {
+/*label {
 	font-weight: 400;
-}
+}*/
 
 .form-horizontal.style-form .form-group {
 	border-bottom: 1px solid #eff2f7;
@@ -2128,14 +2128,14 @@ label {
 		margin-left:-150px;
 	}
 }
-
-@media ( max-width : 768px) {
+/*@media ( max-width : 768px) {
 	.container {
 	padding:0px !important;
 	width:100% !important;
 	min-width: 320px !important;
 	border-radius: 10px;
-}
+}*/
+
 .categoryHeader{
 	background: rgb(148, 69, 69); color: white; padding: 2px;padding-left:5px;font-weight:bold;margin-top:0;
 }
