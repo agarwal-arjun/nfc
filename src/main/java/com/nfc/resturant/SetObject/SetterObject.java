@@ -22,16 +22,17 @@ import com.nfc.resturant.model.Orders;
 import com.nfc.resturant.model.Request;
 import com.nfc.resturant.model.TxnHistory;
 
-public abstract class SetterObject implements Constants{
+public abstract class SetterObject implements Constants {
 	public static List<Orders> menuToOrder(List<Menu> menuList, JSONObject data, long merchantId, boolean isCreatedDate) throws JSONException {
-		Map<Long, Integer> quantityMap = getMenuQuantityMap(data.getJSONArray(ORDER_DETAILS));
-		
+		Map<Integer, Integer> quantityMap = getMenuQuantityMap(data.getJSONArray(ORDER_DETAILS));
+
 		List<Orders> orderList = new ArrayList<Orders>(menuList.size());
 		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-		
+
 		Orders order = null;
 		for(Menu menu : menuList) {
 			order = new Orders();
+			// order.setId('');
 			order.setOrder_id(data.getString("orderId"));
 			order.setTable_id(data.getString(TABLE_ID));
 			order.setMenu_id(menu.getId());
@@ -46,16 +47,16 @@ public abstract class SetterObject implements Constants{
 		}
 		return orderList;
 	}
-	
-	private static Map<Long, Integer> getMenuQuantityMap(JSONArray jsonArray) throws JSONException{
-		Map<Long, Integer> data = new HashMap<Long, Integer>(jsonArray.length());
-		for (int index = 0; index<jsonArray.length(); index++) {
+
+	private static Map<Integer, Integer> getMenuQuantityMap(JSONArray jsonArray) throws JSONException {
+		Map<Integer, Integer> data = new HashMap<Integer, Integer>(jsonArray.length());
+		for (int index = 0; index < jsonArray.length(); index++) {
 			JSONObject obj = (JSONObject) jsonArray.get(index);
-			data.put(obj.getLong(ID), obj.getInt(QUANTITY));
+			data.put(obj.getInt(ID), obj.getInt(QUANTITY));
 		}
 		return data;
 	}
-	
+
 	public static TxnHistory createTxnHistory(Request requestObj, JSONObject jsonObject, long merchantId) throws JSONException {
 	  TxnHistory txn=new TxnHistory();
 	  txn.setCreadedDate(new Timestamp(System.currentTimeMillis()));

@@ -5,7 +5,7 @@ public interface Constants {
 	String QUESTION_MARK = "?";
 	String EMPTY = "";
 	String COMMA = ",";
-	String PIPE = "|";
+	String PIPE = "\\|";
 	String ID = "id";
 	String QUANTITY = "quantity";
 	String MERCHANT_ID = "merchantId";

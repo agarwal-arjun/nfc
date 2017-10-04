@@ -89,6 +89,9 @@ public class ResturantController<T> implements Constants {
     Cookie order =
         new Cookie("order", "{orderId : '', tableId : " + requestObj.getTableId()
             + ", merchantId : " + requestObj.getMerchantId() + "}");
+    order.setPath("http://127.0.0.1:8082");
+   // order.setSecure(true);
+    order.setHttpOnly(true);
     response.addCookie(order);
     return "home";
   }
@@ -208,12 +211,16 @@ public class ResturantController<T> implements Constants {
       session = request.getSession(false);
       Request requestObj = (Request) session.getAttribute(REQUEST);
 
-      verification.verifyOrder(verifyOrGenerateId);
+     verification.verifyOrder(verifyOrGenerateId);
       orderDetails.put(ORDER_ID, verifyOrGenerateId.get(ORDER_ID));
 
-      resturantDao.save((T[]) SetterObject.menuToOrder(
+      log.info(SetterObject.menuToOrder(
+              resturantDao.getMenuById(orderDetails, Long.valueOf(requestObj.getMerchantId())),
+              orderDetails, Long.valueOf(requestObj.getMerchantId()), true).get(0).toString());
+      
+      resturantDao.saveOrder(SetterObject.menuToOrder(
           resturantDao.getMenuById(orderDetails, Long.valueOf(requestObj.getMerchantId())),
-          orderDetails, Long.valueOf(requestObj.getMerchantId()), true).toArray());
+          orderDetails, Long.valueOf(requestObj.getMerchantId()), true));
       resturantDao.updateTableStatus(TABLE_OCCUPIED, requestObj.getMerchantId(),
           requestObj.getTableId());
 
@@ -235,6 +242,8 @@ public class ResturantController<T> implements Constants {
     } catch (NFCDBException e) {
       e.printStackTrace();
       throw new GenericException("uable to place order:" + e.getMessage());
+    }catch(Throwable e){
+    	e.printStackTrace();
     }
     return "SUCCESS";
   }

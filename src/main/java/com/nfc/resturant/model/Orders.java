@@ -8,7 +8,7 @@ public class Orders implements Constants {
 	private long id;
 	private String order_id;
 	private String table_id;
-	private long menu_id;
+	private int menu_id;
 	private int quantity;
 	private double amount;
 	private String status;
@@ -33,10 +33,10 @@ public class Orders implements Constants {
 	public void setTable_id(String table_id) {
 		this.table_id = table_id;
 	}
-	public long getMenu_id() {
+	public int getMenu_id() {
 		return menu_id;
 	}
-	public void setMenu_id(long menu_id) {
+	public void setMenu_id(int menu_id) {
 		this.menu_id = menu_id;
 	}
 	public int getQuantity() {

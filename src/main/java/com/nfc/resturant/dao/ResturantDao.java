@@ -43,8 +43,13 @@ public class ResturantDao<T> extends Prototype implements Queries.ResturantQueri
 	public void save(final T[] entityArray) throws NFCDBException {
 		try {
 			for(T entity : entityArray)
+			{
+				logger.info( ((Object[])entity.toString().split(PIPE)).toString());
+				logger.info( ((Object[])entity.toString().split(PIPE)).length);
 				jdbcTemplate.update(Prototype.getSaveQueries().get(entity.getClass().getSimpleName().toUpperCase()), (Object[])entity.toString().split(PIPE));
-		} catch (Exception e) {
+
+			}
+						} catch (Exception e) {
 		  logger.error("unable to save entityarray"+e.getMessage());
 	      throw new NFCDBException("unable to save entityarray"+e.getMessage());
 		}
@@ -100,11 +105,14 @@ public class ResturantDao<T> extends Prototype implements Queries.ResturantQueri
 	}
 	
 	public String verifyOrderWhenNull(String tableNumber) throws NFCDBException{
-		Orders order = null;
+		List<Orders> order = null;
 		String orderId = null;
 		try {
-			order = jdbcTemplate.queryForObject(GET_ORDERS_BY_TABLE_ID, new Object[]{tableNumber}, new BeanPropertyRowMapper<Orders>(Orders.class));
-			orderId = order.getOrder_id();
+			order = jdbcTemplate.query(GET_ORDERS_BY_TABLE_ID, new Object[]{tableNumber}, new BeanPropertyRowMapper<Orders>(Orders.class));
+			if(order.size() != 0)
+			orderId = order.get(0).getOrder_id();
+			else
+				orderId = NFCUtil.generateOrderID();
 		}catch (Exception e){
           logger.error("unable to verify order id:"+e.getMessage());
           throw new NFCDBException("unable to verify order id:"+e.getMessage());
@@ -117,7 +125,11 @@ public class ResturantDao<T> extends Prototype implements Queries.ResturantQueri
 		String orderId = null;
 		try {
 			order = jdbcTemplate.queryForObject(GET_ORDERS_BY_TABLE_ID, new Object[]{Integer.parseInt(data.getString(TABLE_ID))}, new BeanPropertyRowMapper<Orders>(Orders.class));
-			if (!data.get(ORDER_ID).equals(order.getOrder_id()))
+			if(order == null)
+			{
+				orderId = NFCUtil.generateOrderID();
+			}
+			else if (!data.get(ORDER_ID).equals(order.getOrder_id()))
 				orderId = NFCUtil.generateOrderID();
 			else
 				orderId = data.getString(ORDER_ID);
@@ -254,4 +266,17 @@ public class ResturantDao<T> extends Prototype implements Queries.ResturantQueri
   }
     
   }
+
+public void saveOrder(List<Orders> menuToOrder) {
+	try {
+		for(Orders entity : menuToOrder)
+		{
+	       jdbcTemplate.update(INSERT_INTO_ORDER,entity.getOrder_id(), entity.getTable_id(), entity.getMenu_id(), entity.getQuantity(), entity.getAmount(), entity.getStatus(), entity.getCreated_on(), entity.getModified_on(), entity.getMerchant_id());
+		}
+	  } catch (Exception e) {
+	      logger.error("unable to insert order:"+e.getMessage());
+	    
+	  }
+	
+}
 }
