@@ -3,7 +3,7 @@ package com.nfc.resturant.model;
 import java.util.Date;
 
 public class Menu {
-	private long id;
+	private int id;
 	private String name;
 	private String description;
 	private int quantity;
@@ -71,11 +71,11 @@ public class Menu {
 		this.discount = discount;
 	}
 
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
