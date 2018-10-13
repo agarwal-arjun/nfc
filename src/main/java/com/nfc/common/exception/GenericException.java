@@ -5,10 +5,10 @@ package com.nfc.common.exception;
  */
 public class GenericException extends RuntimeException {
 
-  /** The Constant serialVersionUID. */
+  /** The Constant serialVersionUID.*/
   private static final long serialVersionUID = -6029106838866713166L;
 
-  /** The custom msg. */
+  /** The custom msg.*/
   private String customMsg;
 
   /**
