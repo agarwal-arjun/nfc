@@ -1,1 +1,2 @@
 - [Arjun Agarwal] (https://github.com/a-agrwaal)
+- [Krati Mittal] (https://github.com/krati13)
