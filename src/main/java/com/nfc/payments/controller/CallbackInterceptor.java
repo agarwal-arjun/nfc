@@ -97,7 +97,6 @@ public class CallbackInterceptor {
       social.setMaxAge(json.getInt("expires_in"));
       social.setPath("/");
       res.addCookie(social);
-      
       return "redirect:/response/displayPage";
     } catch (Exception e) {
       throw new SocialException("unable to insert in db:"+e.getMessage());
@@ -160,7 +159,6 @@ public class CallbackInterceptor {
       return json;//.get("access_token").toString();
 
     } catch (Exception e) {
-      // an error occurred, handle this
       throw new SocialException("unable to get token" + e.getMessage());
     }
 
