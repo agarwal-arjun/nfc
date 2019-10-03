@@ -9,7 +9,7 @@ import java.util.UUID;
 public abstract class NFCUtil {
 
 	/**
-	 * This method id used to generate new OrderId
+	 * This method is used to generate new OrderId
 	 */
 	public static String generateOrderID() {
 		return UUID.randomUUID().toString();
